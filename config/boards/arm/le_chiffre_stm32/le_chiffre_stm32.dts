@@ -77,6 +77,23 @@
         , <&gpiob 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         ;
     };
+
+    encoder: encoder {
+        compatible = "alps,ec11";
+        label = "ENCODER";
+        a-gpios = <&gpiob 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpiob 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+	steps = <30>;
+        status = "disabled";
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        status = "disabled";
+        sensors = <&encoder>;
+
+	triggers-per-rotation = <15>;
+    };
 };
 
 &i2c1 {
