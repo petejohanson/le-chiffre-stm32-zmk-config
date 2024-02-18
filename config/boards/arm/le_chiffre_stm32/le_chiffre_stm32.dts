@@ -100,10 +100,11 @@
 &i2c1 {
     pinctrl-0 = <&i2c1_scl_pb6 &i2c1_sda_pb7>;
     pinctrl-names = "default";
-    status = "okay";
+    // status = "okay";
     clock-frequency = <I2C_BITRATE_FAST>;
 
     oled: ssd1306@3c {
+	status = "disabled";
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
         label = "DISPLAY";
@@ -122,6 +123,10 @@
 
 &usb {
     status = "okay";
+
+    pinctrl-0 = <&usb_dm_pa11 &usb_dp_pa12>;
+    pinctrl-names = "default";
+
     cdc_acm_uart: cdc_acm_uart {
         compatible = "zephyr,cdc-acm-uart";
         label = "CDC_ACM_0";
@@ -129,6 +134,10 @@
 };
 
 &clk_hsi {
+    status = "okay";
+};
+
+&clk_hsi48 {
     status = "okay";
 };
 
