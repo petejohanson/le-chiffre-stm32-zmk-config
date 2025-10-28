@@ -5,9 +5,6 @@
 
 if BOARD_LE_CHIFFRE_STM32
 
-config BOARD
-    default "le_chiffre_stm32"
-
 config ZMK_KEYBOARD_NAME
     default "Le Chiffre"
 

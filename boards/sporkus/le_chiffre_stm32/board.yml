@@ -1,0 +1,5 @@
+board:
+  name: le_chiffre_stm32
+  vendor: sporkus
+  socs:
+    - name: stm32f072xb
